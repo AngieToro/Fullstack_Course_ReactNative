@@ -7,19 +7,6 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-<<<<<<< Updated upstream
-.expo/
-=======
-<<<<<<< HEAD
-=======
-.expo/
->>>>>>> d1ee9ed (Actualizacion de referencias)
->>>>>>> Stashed changes
-dist
-dist-ssr
-*.local
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -30,3 +17,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Systems
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Others
+.expo/
+ios/
+dist
+dist-ssr
+*.local

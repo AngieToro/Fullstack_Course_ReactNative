@@ -24,7 +24,9 @@
     "@babel/core": "^7.20.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^9.31.0",
-    "eslint-plugin-react": "^7.37.5"
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-native": "^5.0.0",
+    "globals": "^16.3.0"
   },
   "private": true
 }

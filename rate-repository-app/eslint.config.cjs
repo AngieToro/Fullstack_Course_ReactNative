@@ -1,5 +1,6 @@
 const reactPlugin = require('eslint-plugin-react');
 const js = require('@eslint/js');
+const globals = require('globals');
 
 module.exports = [
   js.configs.recommended,
@@ -12,6 +13,11 @@ module.exports = [
         ecmaFeatures: {
           jsx: true
         }
+      },
+      globals: {
+        ...globals.browser,   // para React Web
+        ...globals.node,      // para React Native
+        console: 'readonly'
       }
     },
     plugins: {
@@ -24,7 +30,8 @@ module.exports = [
     },
     rules: {
       'react/prop-types': 'off',
-      'semi': ['error', 'always']
+      'semi': ['error', 'always'],
+      'no-unused-vars': 'off'
     }
   }
 ];
