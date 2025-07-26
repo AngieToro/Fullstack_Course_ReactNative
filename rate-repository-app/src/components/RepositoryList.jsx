@@ -1,21 +1,23 @@
 import React from 'react';
-import { Text, StyleSheet, View, FlatList} from 'react-native';
+import { Text as NativeText, View, FlatList} from 'react-native';
 import repositories from '../../data/repositories';
 import RepositoryItem from '../components/RepositoryItem';
-import styles from '../styles/RepositoryStyles';
+import stylesRepo from '../styles/RepositoryStyles';
 
-const ItemSeparator = () => <View style={ styles.separator } />;
+const ItemSeparator = () => <View style={ stylesRepo.separator } />;
 
-const RepositoryList = () => {
+const RepositoryList = () => { 
+
+    console.log('Repositories ', repositories);
 
     return(
-        <View style={{ padding: 16 }}> 
-            <Text style={ styles.bold }>Repositories</Text>
+        <View style={ stylesRepo.listContainer }> 
+            <NativeText style={ stylesRepo.header }>Repositories</NativeText>
             <FlatList
                 data={ repositories }
                 renderItem={ ( { item } ) => <RepositoryItem item={ item } /> }
                 keyExtractor={ ( item ) => item.id }
-                ItemSeparator={ ItemSeparator }
+                ItemSeparatorComponent={ ItemSeparator }
             />
         </View>
     );

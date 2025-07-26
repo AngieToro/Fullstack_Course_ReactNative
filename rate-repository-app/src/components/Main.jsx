@@ -1,26 +1,43 @@
-import React from 'react';
-import Constants from 'expo-constants';
-import { Text, StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text as NativeText, SafeAreaView, Pressable, ScrollView } from 'react-native';
 import PressableClickMe from './PressableClickMe';
 import RepositoryList from './RepositoryList';
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: Constants.statusBarHeight,
-    flexGrow: 1,
-    flexShrink: 1,
-  },
-});
+import AppBar from './AppBar';
+import stylesRepo from '../styles/RepositoryStyles';
+import CustomStyles from './CustomStyles';
+import FlexboxStyles from './FlexboxStyles';
 
 const Main = () => {
 
+  const [showExtraContent, setShowExtraContent] = useState(false);
+
+   const handleClick = () => setShowExtraContent(true);
+  
     return (
 
-        <View style={ styles.container }>
-            <Text>Rate Repository Application</Text>
-            <PressableClickMe />
-            <RepositoryList />
-        </View>
+      <SafeAreaView style={ stylesRepo.containerApp }>
+          <AppBar />
+          <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+            <View style={ stylesRepo.container }>
+              <NativeText style={ stylesRepo.title }>Rate Repository Application</NativeText>
+              <PressableClickMe />
+              <Pressable onPress= { handleClick }>
+                <NativeText style={{ color: 'blue', textDecorationLine: 'underline' }}>
+                  Click to show the content
+                </NativeText>
+              </Pressable>
+
+              { showExtraContent && (
+                <View style={{ marginTop: 20, paddingHorizontal:20 }}>
+                  <CustomStyles />
+                  <FlexboxStyles />
+                </View> 
+              )}
+
+              <RepositoryList />
+            </View>
+          </ScrollView>
+      </SafeAreaView>
     );
 };
 

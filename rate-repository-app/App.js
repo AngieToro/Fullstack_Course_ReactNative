@@ -1,14 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import Main from './src/components/Main';
 
 const App = () => {
 
-  return (
-    <View>
-      <Main />
-    </View>
-  );
+  return <Main />;
 };
 
 export default App;

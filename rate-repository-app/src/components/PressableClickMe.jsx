@@ -1,13 +1,15 @@
 import React from 'react';
-import { Text, Alert, Pressable } from 'react-native';
+import { Text as NativeText, Alert, Pressable, View } from 'react-native';
 
-const TouchableText = ( ) => {
-
+const PressableClickMe = () => {
+ 
     return (
-      <Pressable onPress= { () => Alert.alert('You clicked me')}>
-        <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>Click me</Text>
+      <View>
+       <Pressable onPress={() => Alert.alert('You pressed the text')}>
+        <NativeText>Click me</NativeText>
       </Pressable>
+      </View>
     );
 };
 
-export default TouchableText;
+export default PressableClickMe;
