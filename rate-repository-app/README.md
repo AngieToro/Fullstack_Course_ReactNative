@@ -12,4 +12,4 @@ Simulador iOS
 
 	2.	Se abrirá el menú de Expo
 	
-	3.	Seleccionar Open JS Debugger (hay que tener instalado React Native Debugger)
+	3.	Seleccionar Reload o Open JS Debugger (hay que tener instalado React Native Debugger)

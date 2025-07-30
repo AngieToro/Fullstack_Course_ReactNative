@@ -8,18 +8,20 @@ const ItemSeparator = () => <View style={ stylesRepo.separator } />;
 
 const RepositoryList = () => { 
 
-    console.log('Repositories ', repositories);
+    //console.log('Repositories ', repositories);
 
     return(
-        <View style={ stylesRepo.listContainer }> 
-            <NativeText style={ stylesRepo.header }>Repositories</NativeText>
-            <FlatList
-                data={ repositories }
-                renderItem={ ( { item } ) => <RepositoryItem item={ item } /> }
-                keyExtractor={ ( item ) => item.id }
-                ItemSeparatorComponent={ ItemSeparator }
-            />
-        </View>
+        <View style={ stylesRepo.contentContainer }>
+            <NativeText style={ stylesRepo.title }>Rate Repository Application</NativeText>
+            <View style={ stylesRepo.listContainer }> 
+                <FlatList
+                    data={ repositories }
+                    renderItem={ ( { item } ) => <RepositoryItem item={ item } /> }
+                    keyExtractor={ ( item ) => item.id }
+                    ItemSeparatorComponent={ ItemSeparator }
+                />
+            </View>
+         </View>
     );
 };
 

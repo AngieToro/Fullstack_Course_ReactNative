@@ -1,5 +1,5 @@
 import { View, Text as NativeText } from 'react-native';
-import stylesFlex from '../styles/FlexboxStyle';
+import stylesFlex from '../../styles/FlexboxStyle';
 
 const FlexboxStyles = () => {
 

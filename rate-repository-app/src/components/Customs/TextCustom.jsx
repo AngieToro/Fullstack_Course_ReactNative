@@ -1,6 +1,6 @@
 import React from "react";
 import { Text as NativeText } from "react-native";
-import stylesRepo from "../styles/RepositoryStyles";
+import stylesRepo from "../../styles/RepositoryStyles";
 
 const TextCustom = ( { color, fontSize, fontWeight, style, ...props } ) => {
 
