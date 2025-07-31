@@ -21,10 +21,9 @@ const Main = () => {
           <AppBar />
           <Routes>
             <Route path='*' element={ <Navigate to='/' replace /> } />
-            <Route path='/login' element={ <Login /> } />
-            <Route path='/' element={ <RepositoryList /> } />
+            <Route path='/' element={ <Login /> } />
+            <Route path='/repositories' element={ <RepositoryList /> } />
           </Routes>
- 
           {/*  <PressableClickMe />
               <Pressable onPress= { handleClick }>
                 <NativeText style={{ color: 'blue', textDecorationLine: 'underline' }}>

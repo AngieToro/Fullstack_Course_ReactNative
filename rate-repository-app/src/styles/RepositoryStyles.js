@@ -1,7 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import Constants from 'expo-constants';
 import theme from "./ThemeStyle";
 
+const fontFamily = Platform.select({
+    android:'Roboto',
+    ios: 'Arial',
+    default: 'System'
+});
+   
 const stylesRepo = StyleSheet.create({
 
     containerApp: {
@@ -10,8 +16,7 @@ const stylesRepo = StyleSheet.create({
         padding: 20,
     },
     contentContainer: {
-        flex: 1,
-        
+        flex: 1
     },
     containerBar: {
         paddingTop: Constants.statusBarHeight,
@@ -58,7 +63,8 @@ const stylesRepo = StyleSheet.create({
         color: '#2e86de',
         marginBottom: 10,
         marginTop:10,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: fontFamily,  
     },
     header: {
         fontWeight: 'bold',
@@ -75,6 +81,33 @@ const stylesRepo = StyleSheet.create({
         color: '#ffffffff',
         alignSelf: 'flex-start'
     },
+    textInput: {
+        borderWidth: 1,
+        borderColor: '#2e86de',
+        borderRadius: 4,
+        padding: 10,
+        marginBottom: 10,
+        fontFamily: fontFamily,  
+    },
+    button: {
+        borderWidth: 1,
+        borderColor: '#2e86de',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        backgroundColor: '#2e86de',
+        marginVertical: 10,
+        alignSelf: 'center'
+    },
+    buttonText: {
+        color: '#ffffffff',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontFamily: fontFamily, 
+    },
+    errorBorder: {
+        borderColor: '#d73a4a'
+    },
     raking: { 
         flexDirection: "column", 
         alignItems: "center", 
@@ -85,6 +118,10 @@ const stylesRepo = StyleSheet.create({
         fontSize: theme.fontSizes.body,
         fontFamily: theme.fonts.main,
         fontWeight: theme.fontWeights.normal,
+    },
+    erroText: {
+        marginTop: 5,
+        color: '#ff0000ff'
     },
     colorTextSecondary: {
         color: theme.colors.textSecondary,
@@ -102,7 +139,7 @@ const stylesRepo = StyleSheet.create({
         width: 50, 
         height: 50, 
         borderRadius: 25
-    }
+    },
 });
 
 export default stylesRepo;
