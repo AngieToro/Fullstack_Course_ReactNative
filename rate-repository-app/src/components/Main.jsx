@@ -5,9 +5,9 @@ import AppBar from './AppBar';
 import RepositoryList from './RepositoryList';
 import Login from './Login';
 import stylesRepo from '../styles/RepositoryStyles';
-import PressableClickMe from './Customs/PressableClickMe';
-import CustomStyles from './Customs/CustomStyles';
-import FlexboxStyles from './Customs/FlexboxStyles';
+import PressableClickMe from './customs/PressableClickMe';
+import CustomStyles from './customs/CustomStyles';
+import FlexboxStyles from './customs/FlexboxStyles';
 
 const Main = () => {
 
