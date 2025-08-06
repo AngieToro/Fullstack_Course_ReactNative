@@ -3,7 +3,7 @@ import { View, Text, Pressable } from 'react-native';
 import stylesRepo from "../styles/RepositoryStyles";
 import FormikTextInput from "./FormikTextInput";
 import { Formik } from 'formik';
-import validationSchema from './utils/ValidationSchema'; 
+import validationSchema from '../utils/ValidationSchema'; 
 
 const initialValues = {
     username: '',
