@@ -1,6 +1,13 @@
-const Mutation = () => {
+import { gql } from '@apollo/client';
 
-
-};
-
-export default Mutation;
+export const AUTHENTICATE_USER = gql`
+    mutation Mutation($credentials: AuthenticateInput) {
+        authenticate(credentials: $credentials) {
+            user {
+                id,
+                username
+            }
+            accessToken
+        }
+    }
+`;

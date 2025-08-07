@@ -10,8 +10,8 @@ const AppBar = () => {
             <ScrollView horizontal contentContainerStyle={{ flexDirection: 'row' }}>
                 <AppBarTab to='/' label='Login' />
                 <AppBarTab to='/repositories' label='Repositories' />
-               {/*  <AppBarTab to='/' label='Test 1' />
-                <AppBarTab to='/' label='Test 2' />
+                <AppBarTab to='/logout' label='Logout' />
+                {/* <AppBarTab to='/' label='Test 2' />
                 <AppBarTab to='/' label='Test 3' />
                 <AppBarTab to='/' label='Test 4' />
                 <AppBarTab to='/' label='Test 5' />

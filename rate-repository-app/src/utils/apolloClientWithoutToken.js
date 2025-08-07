@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import Constants from 'expo-constants';
 
-const createApolloClient = () => {
+const createApolloClient = ( ) => {
 
     const apolloUri = Constants.expoConfig.extra.apiUrl;
     console.log('apolloUri: ', apolloUri);

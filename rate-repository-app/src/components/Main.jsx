@@ -4,6 +4,7 @@ import { Route, Routes, Navigate } from 'react-router-native';
 import AppBar from './AppBar';
 import RepositoryList from './RepositoryList';
 import Login from './Login';
+import Logout from './Logout';
 import stylesRepo from '../styles/RepositoryStyles';
 import PressableClickMe from './customs/PressableClickMe';
 import CustomStyles from './customs/CustomStyles';
@@ -23,6 +24,7 @@ const Main = () => {
             <Route path='*' element={ <Navigate to='/' replace /> } />
             <Route path='/' element={ <Login /> } />
             <Route path='/repositories' element={ <RepositoryList /> } />
+            <Route path='/logout' element={ <Logout /> } />
           </Routes>
           {/*  <PressableClickMe />
               <Pressable onPress= { handleClick }>
