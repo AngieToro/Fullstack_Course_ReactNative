@@ -12,7 +12,7 @@ const useSignIn = () => {
         throw new Error('AuthStorageContext is undefined. Did you forget to wrap your app in <AuthStorageContext.Provider>?');
     }
 
-    const client = useApolloClient();
+    const apolloClient = useApolloClient();
 
     const [mutate, result] = useMutation( AUTHENTICATE_USER );
 
@@ -37,7 +37,7 @@ const useSignIn = () => {
 
             if ( accessToken ){
                 await authStorage.setAccessToken( accessToken );    //se guarda el token
-                await client.resetStore();  //borrar cache de apollo
+                await apolloClient.resetStore();  //borrar cache de apollo
                 return response;    
             }
             

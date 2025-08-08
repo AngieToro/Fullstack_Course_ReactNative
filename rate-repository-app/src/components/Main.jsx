@@ -5,6 +5,7 @@ import AppBar from './AppBar';
 import RepositoryList from './RepositoryList';
 import Login from './Login';
 import Logout from './Logout';
+import useMe from '../hooks/useMe';
 import stylesRepo from '../styles/RepositoryStyles';
 import PressableClickMe from './customs/PressableClickMe';
 import CustomStyles from './customs/CustomStyles';
@@ -15,14 +16,19 @@ const Main = () => {
   /* const [showExtraContent, setShowExtraContent] = useState(false);
 
   const handleClick = () => setShowExtraContent(true); */
+
+    const { data } = useMe();
+
+    const isLoggedIn = !!data?.me;
   
     return (
 
       <SafeAreaView style={ stylesRepo.containerApp }>
           <AppBar />
           <Routes>
-            <Route path='*' element={ <Navigate to='/' replace /> } />
-            <Route path='/' element={ <Login /> } />
+            {/* <Route path='*' element={ <Navigate to='/' replace /> } /> */}
+            <Route path='/' element={ isLoggedIn ? <RepositoryList /> : <Navigate to='/login' replace />  }></Route>
+            <Route path='/login' element={ <Login /> } />
             <Route path='/repositories' element={ <RepositoryList /> } />
             <Route path='/logout' element={ <Logout /> } />
           </Routes>
