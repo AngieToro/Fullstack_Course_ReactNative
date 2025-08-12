@@ -15,7 +15,8 @@ const RepositoryItem = ( { item } ) => {
 
     return (
 
-        <View style={ stylesRepo.item }>
+        // testID se agrego por la prueba -> Fullstack_Course_ReactNative/rate-repository-app/src/__tests__/components/RepositoryList.js
+        <View style={ stylesRepo.item } testID="repositoryItem" >
             <View style={ { flexDirection: "row", marginBottom: 10 } }>
                 <Image
                     style={ stylesRepo.logo }
