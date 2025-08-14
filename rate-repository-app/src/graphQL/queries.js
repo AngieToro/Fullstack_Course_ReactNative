@@ -30,3 +30,39 @@ export const GET_USER_CONNECT = gql`
         }
     }
 `;
+
+export const GET_REPOSITORY = gql`
+    query Repository($repositoryId: ID!) {
+        repository(id: $repositoryId) {
+            id
+            ownerName
+            name
+            createdAt
+            fullName
+            ratingAverage
+            reviewCount
+            stargazersCount
+            watchersCount
+            forksCount
+            openIssuesCount
+            url
+            ownerAvatarUrl
+            description
+            language
+            reviews {
+                edges {
+                    node {
+                        id
+                        createdAt
+                        rating
+                        text
+                        user {
+                            id
+                            username
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;

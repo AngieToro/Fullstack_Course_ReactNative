@@ -30,7 +30,7 @@ ehthumbs.db
 Desktop.ini
 
 # Others
-.expo/
+.expo
 ios/
 dist
 dist-ssr

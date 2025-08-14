@@ -53,6 +53,18 @@ const stylesRepo = StyleSheet.create({
         borderRadius: 4,
         borderColor: '#2e86de'
     },
+    itemDetail: {
+        backgroundColor: '#e8f0fe',
+        padding: 12,
+        borderWidth: 1,
+        marginBottom: 10,
+        borderRadius: 4,
+        borderColor: '#2e86de',
+        alignSelf: 'center',
+        width: '90%',
+        maxWidth: 400,
+        marginTop: 20
+    },
     name: {
         fontWeight: 'bold',
         color: '#2e86de'

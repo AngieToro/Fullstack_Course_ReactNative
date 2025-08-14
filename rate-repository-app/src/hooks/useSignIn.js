@@ -1,6 +1,6 @@
 import { useMutation, useApolloClient } from "@apollo/client";
 import { useContext } from "react";
-import { AUTHENTICATE_USER } from "../graphql/mutations";
+import { AUTHENTICATE_USER } from "../graphQL/mutations";
 import AuthStorageContext from "../context/AuthStorageContext";
 
 const useSignIn = () => {

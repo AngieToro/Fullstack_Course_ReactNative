@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Pressable } from 'react-native';
-import { useNavigate } from "react-router-native";
+import { useNavigation } from '@react-navigation/native';
 import stylesRepo from "../styles/RepositoryStyles";
 import FormikTextInput from "./FormikTextInput";
 import { Formik } from 'formik';
@@ -15,7 +15,7 @@ const initialValues = {
 const Login = () => {
 
     const { handleLogin, result } = useSignIn();
-    const navigate = useNavigate();
+    const navigation = useNavigation();
 
     const onSubmit = async( values ) => {
 
@@ -30,7 +30,7 @@ const Login = () => {
             const accessToken = response?.data?.authenticate?.accessToken;
 
             if ( accessToken ) {
-                navigate('/repositories');
+                navigation.navigate('RepositoryList');
             }
             
         } catch (error) {

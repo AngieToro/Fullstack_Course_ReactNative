@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { GET_USER_CONNECT } from '../graphql/queries';
+import { GET_USER_CONNECT } from '../graphQL/queries';
 
 const useMe = () => {
 

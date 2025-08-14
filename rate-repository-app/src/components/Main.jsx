@@ -1,50 +1,35 @@
-import React, { useState } from 'react';
-import { Text as NativeText, SafeAreaView, Pressable, ScrollView } from 'react-native';
-import { Route, Routes, Navigate } from 'react-router-native';
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppBar from './AppBar';
 import RepositoryList from './RepositoryList';
+import RepositoryDetails from './RepositoryDetails';
 import Login from './Login';
 import Logout from './Logout';
 import useMe from '../hooks/useMe';
-import stylesRepo from '../styles/RepositoryStyles';
-import PressableClickMe from './customs/PressableClickMe';
-import CustomStyles from './customs/CustomStyles';
-import FlexboxStyles from './customs/FlexboxStyles';
 
 const Main = () => {
 
-  /* const [showExtraContent, setShowExtraContent] = useState(false);
-
-  const handleClick = () => setShowExtraContent(true); */
-
     const { data } = useMe();
+
+    const Stack = createNativeStackNavigator();
 
     const isLoggedIn = !!data?.me;
   
-    return (
-
-      <SafeAreaView style={ stylesRepo.containerApp }>
-          <AppBar />
-          <Routes>
-            {/* <Route path='*' element={ <Navigate to='/' replace /> } /> */}
-            <Route path='/' element={ isLoggedIn ? <RepositoryList /> : <Navigate to='/login' replace />  }></Route>
-            <Route path='/login' element={ <Login /> } />
-            <Route path='/repositories' element={ <RepositoryList /> } />
-            <Route path='/logout' element={ <Logout /> } />
-          </Routes>
-          {/*  <PressableClickMe />
-              <Pressable onPress= { handleClick }>
-                <NativeText style={{ color: 'blue', textDecorationLine: 'underline' }}>
-                  Click to show the content
-                </NativeText>
-              </Pressable>
-              { showExtraContent && (
-                <View style={{ marginTop: 20, paddingHorizontal:20 }}>
-                  <CustomStyles />
-                  <FlexboxStyles />
-                </View> 
-              )} */}
-      </SafeAreaView>
+    return (  
+        <>
+            <AppBar />
+            <Stack.Navigator initialRouteName={ isLoggedIn ? "RepositoryList" : "Login"}>
+              { isLoggedIn ? (
+                <>
+                  <Stack.Screen name='RepositoryList' component={RepositoryList} />
+                  <Stack.Screen name='RepositoryDetails' component={RepositoryDetails}/>
+                  <Stack.Screen name='Logout' component={Logout} />
+                </>
+              ) : (
+                <Stack.Screen name='Login' component={Login} options={ { headerShown: false }} /> //para quitar la barra superior si ya usas tu propio AppBar.
+              )}
+            </Stack.Navigator>
+        </>
     );
 };
 
