@@ -14,16 +14,16 @@ const RepositoryList = () => {
     if (error) return <NativeText>Error: {error.message}</NativeText>;
 
     return(
-        <View style={ stylesRepo.contentContainer }>
-            <NativeText style={ stylesRepo.title }>Rate Repository Application</NativeText>
-                <View style={stylesRepo.listContainer}>
-                <FlatList
-                    data= { repositories }
-                    renderItem={ ( { item } ) => <RepositoryItem item={ item } /> }
-                    keyExtractor={ ( item ) => item.id }
-                    ItemSeparatorComponent={ ItemSeparator }
-                />
-                </View>
+        <View style={ stylesRepo.repositoriesContainer }>
+            <NativeText style={ stylesRepo.title }>Repository List</NativeText>
+            <View style={stylesRepo.listContainer}>
+            <FlatList
+                data= { repositories }
+                renderItem={ ( { item } ) => <RepositoryItem item={ item } /> }
+                keyExtractor={ ( item ) => item.id }
+                ItemSeparatorComponent={ ItemSeparator }
+            />
+            </View>
          </View>
     );
 };

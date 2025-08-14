@@ -18,12 +18,24 @@ const stylesRepo = StyleSheet.create({
     contentContainer: {
         flex: 1
     },
+    repositoriesContainer: {
+        flex: 1
+    },
+    reviewsContainer: {
+        padding: 12,
+        backgroundColor: '#f9f9f9',
+        borderRadius: 8,
+    },
     containerBar: {
         paddingTop: Constants.statusBarHeight,
         paddingBottom: 10,
         paddingHorizontal: 20,
         backgroundColor: '#2e86de',
     },
+    formContainer: {
+        padding: 20,
+        backgroundColor: '#fff',
+    },  
     textBar: {
         color: '#ffffffff',
         fontWeight: 'bold',
@@ -65,6 +77,17 @@ const stylesRepo = StyleSheet.create({
         maxWidth: 400,
         marginTop: 20
     },
+    reviewDetail: {
+        marginBottom: 12,
+        padding: 8,
+        borderWidth: 1,
+        borderRadius: 6,
+        borderColor: '#2e86de',
+        alignSelf: 'center',
+        width: '90%',
+        maxWidth: 400,
+        backgroundColor: '#fff',
+    },
     name: {
         fontWeight: 'bold',
         color: '#2e86de'
@@ -101,12 +124,17 @@ const stylesRepo = StyleSheet.create({
         marginBottom: 10,
         fontFamily: fontFamily,  
     },
-    button: {
+    inputField: {
+        marginBottom: 16,
+        padding: 12,
         borderWidth: 1,
-        borderColor: '#2e86de',
+        borderColor: '#ccc',
+        borderRadius: 5,
+    },
+    buttonLogin: {
         paddingVertical: 10,
         paddingHorizontal: 20,
-        borderRadius: 5,
+        borderRadius: 6,
         backgroundColor: '#2e86de',
         marginVertical: 10,
         alignSelf: 'center'
@@ -116,6 +144,27 @@ const stylesRepo = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         fontFamily: fontFamily, 
+    },
+    button: {
+        backgroundColor: '#0366d6',
+        padding: 14,
+        borderRadius: 6,
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    ratingStyle: {
+        width: 50,
+        height: 50,
+        borderRadius: 25, // Hace el círculo
+        backgroundColor: '#2e86de', 
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 10,
+    },
+    ratingText: {
+        color: 'white',
+        fontSize: 20,
+        fontWeight: 'bold',
     },
     errorBorder: {
         borderColor: '#d73a4a'

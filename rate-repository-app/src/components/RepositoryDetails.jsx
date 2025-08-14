@@ -10,18 +10,21 @@ const RepositoryDetails = () => {
 
     const route = useRoute();
     const { id } = route.params;
-
-    console.log('Id repository: ', id);
+    //console.log('Id repository: ', id);
 
     const { repository, loading, error } = useRepository(id);
-    console.log('Repository: ', repository);
+    //console.log('Repository: ', repository);
 
     if (loading) return <NativeText>Loading...</NativeText>;
     if (error) return <NativeText>Error: {error.message}</NativeText>;
 
+    if ( !id ){
+        return <Text>No repository id provider</Text>;
+    }
+
     const handleURL = ( url ) => {
 
-        console.log('Url: ', url);
+        //console.log('Url: ', url);
 
         if ( !url ) return null;
     
@@ -31,7 +34,8 @@ const RepositoryDetails = () => {
     };
     
     return(
-        <View style={ stylesRepo.itemDetail } >
+        <View style={ stylesRepo.listContainer } >
+            <NativeText style={ stylesRepo.title }>Repository Details</NativeText>
                 <View style={ { flexDirection: "row", marginBottom: 10 } }>
                     <Image
                         style={ stylesRepo.logo }
@@ -68,7 +72,7 @@ const RepositoryDetails = () => {
                 </View>
                 <View style={ stylesRepo.button }>
                     <Pressable onPress={ () => handleURL(repository?.url )}>
-                        <NativeText>Open GitHub</NativeText>
+                        <NativeText style={ stylesRepo.buttonText }>Open GitHub</NativeText>
                     </Pressable>
                 </View>
                 <View>

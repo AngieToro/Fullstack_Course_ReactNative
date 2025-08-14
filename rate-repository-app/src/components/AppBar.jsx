@@ -22,11 +22,15 @@ const AppBar = () => {
                     : ( isLoggedIn 
                         ? (
                             <>
-                                <AppBarTab to='RepositoryList' label='Repositories' />
+                                <AppBarTab to='Repository List' label='Repositories' />
+                                <AppBarTab to='Create a Review' label='Create a review' />
                                 <AppBarTab to='Logout' label='Logout' />
                             </>
                         ) : (
+                            <>
                                 <AppBarTab to='Login' label='Login' />
+                                <AppBarTab to='Register' label='Register'/>
+                            </>
                             )
                         )
                 }

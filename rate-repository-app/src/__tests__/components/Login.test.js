@@ -3,7 +3,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Pressable, Text, TextInput, View} from 'react-native'; 
-import ValidationSchema from '../../utils/ValidationSchema';
+import { ValidationLoginSchema } from '../../utils/ValidationSchema';
 
 const Login = ( { onSubmit } ) => {
 
@@ -13,7 +13,7 @@ const Login = ( { onSubmit } ) => {
 
         <Formik
             initialValues={ initialValues}
-            validationSchema={ ValidationSchema }
+            validationSchema={ ValidationLoginSchema }
             onSubmit={ onSubmit}
         >
              { ( { handleSubmit, values, handleChange, touched, errors } ) => (

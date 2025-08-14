@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import stylesRepo from "../styles/RepositoryStyles";
 import FormikTextInput from "./FormikTextInput";
 import { Formik } from 'formik';
-import validationSchema from '../utils/ValidationSchema'; 
+import { ValidationLoginSchema } from '../utils/ValidationSchema'; 
 import useSignIn from "../hooks/useSignIn";
 
 const initialValues = {
@@ -30,7 +30,7 @@ const Login = () => {
             const accessToken = response?.data?.authenticate?.accessToken;
 
             if ( accessToken ) {
-                navigation.navigate('RepositoryList');
+                navigation.navigate('Repository List');
             }
             
         } catch (error) {
@@ -49,13 +49,13 @@ const Login = () => {
             <Formik 
                 initialValues={ initialValues } 
                 onSubmit={ onSubmit } 
-                validationSchema={ validationSchema }
+                validationSchema={ ValidationLoginSchema }
             >
                 { ( { handleSubmit } ) => (
                     <View style={ stylesRepo.listContainer }> 
                         <FormikTextInput name="username" placeholder="Username"/>
                         <FormikTextInput name="password" placeholder="Password" secureTextEntry={true}/>
-                        <Pressable style={ stylesRepo.button } onPress={ handleSubmit }>
+                        <Pressable style={ stylesRepo.buttonLogin } onPress={ handleSubmit }>
                             <Text style={ stylesRepo.buttonText }>Login</Text>
                         </Pressable>
                     </View>

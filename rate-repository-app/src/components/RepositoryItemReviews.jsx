@@ -1,20 +1,20 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import stylesRepo from '../styles/RepositoryStyles';
-import RepositoryItemReview from './RepositoryItemReview';
+import RepositoryReviewDetails from './RepositoryReviewDetails';
 
 const ItemSeparator = () => <View style={ stylesRepo.separator } />;
 
 const RepositoryItemReviews = ( { reviews } ) => {
     
     const reviewsNode = reviews?.edges?.map( edge => edge.node) || [];
-    console.log('Reviews: ', reviewsNode);   
+    //console.log('Reviews: ', reviewsNode);   
 
     return(
-        <View>
+        <View style={ stylesRepo.item }>
             <FlatList
                 data= { reviewsNode }
-                renderItem={ ( { item } ) => <RepositoryItemReview item={ item } /> }
+                renderItem={ ( { item } ) => <RepositoryReviewDetails item={ item } /> }
                 keyExtractor={ ( item ) => item.id }
                 ItemSeparatorComponent={ ItemSeparator }
                 ListEmptyComponent={<Text>No reviews yet.</Text>}

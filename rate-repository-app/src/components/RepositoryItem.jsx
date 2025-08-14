@@ -14,7 +14,7 @@ const RepositoryItem = ( { item } ) => {
 
     const handlePress = () => {     
 
-        navigation.navigate('RepositoryDetails', {
+        navigation.navigate('Repository Details', {
             id: item.id
         } );
     };
