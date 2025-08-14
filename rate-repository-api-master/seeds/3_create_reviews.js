@@ -28,7 +28,7 @@ const createIdColumns = (userId, repositoryId) => ({
   repository_id: repositoryId,
 });
 
-exports.seed = async (knex) => {
+export async function seed(knex) {
   await knex('reviews').del();
 
   await knex('reviews').insert([
@@ -110,4 +110,4 @@ exports.seed = async (knex) => {
       ...createDateColumns(new Date(Date.now() - 5 * oneHour)),
     },
   ]);
-};
+}

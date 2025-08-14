@@ -12,7 +12,7 @@ const commonColumns = {
   password,
 };
 
-exports.seed = async (knex) => {
+export async function seed(knex) {
   await knex('users').del();
 
   await knex('users').insert([
@@ -47,4 +47,4 @@ exports.seed = async (knex) => {
       ...createDateColumns(new Date(Date.now() - 5 * oneHour)),
     },
   ]);
-};
+}
