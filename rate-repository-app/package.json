@@ -22,6 +22,7 @@
     "@apollo/client": "^3.13.9",
     "@expo/metro-runtime": "~5.0.4",
     "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-picker/picker": "^2.11.1",
     "@react-navigation/native": "^7.1.17",
     "@react-navigation/native-stack": "^7.3.25",
     "dotenv": "^17.2.1",
@@ -35,6 +36,8 @@
     "react-dom": "19.0.0",
     "react-native": "0.79.5",
     "react-native-gesture-handler": "~2.24.0",
+    "react-native-paper": "^5.14.5",
+    "react-native-picker-select": "^9.3.1",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
@@ -42,6 +45,7 @@
     "react-native-web": "^0.20.0",
     "react-router-native": "^6.30.0",
     "source-map-support": "^0.5.21",
+    "use-debounce": "^10.0.5",
     "yup": "^1.6.1"
   },
   "devDependencies": {

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text as NativeText, Image, Pressable } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import stylesRepo from "../styles/RepositoryStyles";
-import { formatCount } from '../utils/validations';
+import { formatCount, formatDateTime } from '../utils/validations';
 
 const RepositoryItem = ( { item } ) => {
 
@@ -21,7 +21,7 @@ const RepositoryItem = ( { item } ) => {
 
     return (
 
-         // testID se agrego por la prueba -> Fullstack_Course_ReactNative/rate-repository-app/src/__tests__/components/RepositoryList.js
+         // testID se agrego por la prueba -> Fullstack_Course_ReactNative/rate-repository-app/src/__tests__/components/RepositoryList.test.js
         <Pressable onPress={ handlePress } testID="repositoryItem">
             <View style={ stylesRepo.item } >
                 <View style={ { flexDirection: "row", marginBottom: 10 } }>
@@ -32,6 +32,7 @@ const RepositoryItem = ( { item } ) => {
                     <View style={ { flexDirection: "column", flex: 1, marginLeft: 10 } }>
                         <NativeText style={ stylesRepo.name }> { item.fullName } </NativeText>
                         <NativeText> { item.description } </NativeText>
+                        <NativeText>{formatDateTime(item.createdAt)}</NativeText>
                         <NativeText style={ stylesRepo.highlight }> { item.language} </NativeText>
                     </View>
                 </View>

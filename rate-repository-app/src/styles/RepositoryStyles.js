@@ -184,6 +184,22 @@ const stylesRepo = StyleSheet.create({
         marginTop: 5,
         color: '#ff0000ff'
     },
+    inputIOS: {
+      fontSize: 16,
+      paddingVertical: 12,
+      paddingHorizontal: 10,
+      borderWidth: 1,
+      borderColor: 'gray',
+      borderRadius: 10,
+      color: 'black',
+      paddingRight: 30,
+      marginBottom: 12
+    },
+    placeholder: {
+      color: 'gray',
+      fontWeight: 'bold',
+      fontSize: 16,
+    },
     colorTextSecondary: {
         color: theme.colors.textSecondary,
     },
