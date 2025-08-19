@@ -1,13 +1,18 @@
 import { useQuery } from '@apollo/client';
 import { GET_USER_CONNECT } from '../graphQL/queries';
 
-const useMe = () => {
+const useMe = ( includeReviews= false ) => {
 
-    const { data, loading } = useQuery(GET_USER_CONNECT, {
-        fetchPolicy: 'cache-and-network'
+    console.log('includeReviews: ', includeReviews);
+
+    const variables = { includeReviews };
+
+    const { data, loading, error, refetch } = useQuery(GET_USER_CONNECT, {
+        fetchPolicy: 'cache-and-network',
+        variables
     });
     
-    return { data, loading };
+    return { data, loading, error, refetch };
 };
 
 export default useMe;

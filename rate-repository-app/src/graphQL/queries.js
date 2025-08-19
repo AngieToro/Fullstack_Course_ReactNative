@@ -1,9 +1,17 @@
 import { gql } from '@apollo/client';
 
 export const GET_REPOSITORIES = gql`
-    query Repositories($orderDirection: OrderDirection, $orderBy: AllRepositoriesOrderBy, $searchKeyword: String){
-        repositories(orderDirection: $orderDirection, orderBy: $orderBy, searchKeyword: $searchKeyword) {
+    query Repositories($orderDirection: OrderDirection, $orderBy: AllRepositoriesOrderBy, $searchKeyword: String, $first: Int, $after: String){
+        repositories(orderDirection: $orderDirection, orderBy: $orderBy, searchKeyword: $searchKeyword, first: $first, after: $after) {
+            totalCount
+            pageInfo {
+                endCursor
+                startCursor
+                hasNextPage
+                hasPreviousPage
+            }
             edges {
+                cursor
                 node {
                     id
                     name
@@ -24,16 +32,34 @@ export const GET_REPOSITORIES = gql`
 `;
 
 export const GET_USER_CONNECT = gql`
-    query {
+    query getCurrentUser($includeReviews: Boolean = false) {
         me {
             id
             username
+            reviews @include(if: $includeReviews) {
+                edges {
+                    node {
+                        id
+                        createdAt
+                        rating
+                        text
+                        user {
+                            id
+                            username
+                        }
+                        repository {
+                            id
+                            fullName
+                            url
+                        }
+                    }
+                }
+            }
         }
-    }
-`;
+    }`;
 
 export const GET_REPOSITORY = gql`
-    query Repository($repositoryId: ID!) {
+    query Repository($repositoryId: ID!, $first: Int, $after: String) {
         repository(id: $repositoryId) {
             id
             ownerName
@@ -50,8 +76,16 @@ export const GET_REPOSITORY = gql`
             ownerAvatarUrl
             description
             language
-            reviews {
+            reviews (first: $first, after: $after) {
+                totalCount
+                pageInfo {
+                    startCursor
+                    hasPreviousPage
+                    hasNextPage
+                    endCursor
+                }
                 edges {
+                    cursor
                     node {
                         id
                         createdAt
@@ -65,5 +99,4 @@ export const GET_REPOSITORY = gql`
                 }
             }
         }
-    }
-`;
+    }`;

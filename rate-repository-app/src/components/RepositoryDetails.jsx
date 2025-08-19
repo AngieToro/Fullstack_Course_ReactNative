@@ -5,6 +5,7 @@ import useRepository  from '../hooks/useRepository';
 import stylesRepo from "../styles/RepositoryStyles";
 import { formatCount, formatDateTime } from '../utils/validations'; 
 import RepositoryItemReviews from './RepositoryItemReviews';
+import { handleURL } from "../utils/utils";
 
 const RepositoryDetails = () => {
 
@@ -12,7 +13,7 @@ const RepositoryDetails = () => {
     const { id } = route.params;
     //console.log('Id repository: ', id);
 
-    const { repository, loading, error } = useRepository(id);
+    const { repository, fetchMoreReviews, loading, error } = useRepository( { id, first:5 } );
     //console.log('Repository: ', repository);
 
     if (loading) return <NativeText>Loading...</NativeText>;
@@ -22,15 +23,9 @@ const RepositoryDetails = () => {
         return <Text>No repository id provider</Text>;
     }
 
-    const handleURL = ( url ) => {
-
-        //console.log('Url: ', url);
-
-        if ( !url ) return null;
-    
-        Linking
-            .openURL(url)
-            .catch( error => console.error('Unable to connect with GitHub', error) );
+    const handleFetchMore = () => {
+        console.log('You have reached the end of the list');
+        fetchMoreReviews();
     };
     
     return(
@@ -76,7 +71,11 @@ const RepositoryDetails = () => {
                     </Pressable>
                 </View>
                 <View>
-                    <RepositoryItemReviews reviews={repository?.reviews}/>
+                    <RepositoryItemReviews 
+                        reviews={repository?.reviews}
+                        onEndReached={handleFetchMore}
+                        loading={loading}
+                    />
                 </View>
             </View>
     );    

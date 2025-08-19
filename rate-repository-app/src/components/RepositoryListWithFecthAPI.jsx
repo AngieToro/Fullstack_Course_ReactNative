@@ -4,8 +4,8 @@ import { Text as NativeText, View, FlatList} from 'react-native';
 import RepositoryItem from './RepositoryItem';
 import stylesRepo from '../styles/RepositoryStyles';
 import useRepositories from '../hooks/useRepositoriesWithFechAPI';
+import { ItemSeparator } from "../utils/utils";
 
-const ItemSeparator = () => <View style={ stylesRepo.separator } />;
 
 const RepositoryList = () => { 
 

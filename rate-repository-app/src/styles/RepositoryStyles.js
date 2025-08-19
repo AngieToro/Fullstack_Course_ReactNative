@@ -152,6 +152,13 @@ const stylesRepo = StyleSheet.create({
         alignItems: 'center',
         marginTop: 20,
     },
+    buttonRed: {
+        backgroundColor: '#d73a4a',
+        padding: 14,
+        borderRadius: 6,
+        alignItems: 'center',
+        marginTop: 20,
+    },
     ratingStyle: {
         width: 50,
         height: 50,

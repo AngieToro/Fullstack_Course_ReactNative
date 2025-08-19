@@ -24,6 +24,7 @@ const AppBar = () => {
                             <>
                                 <AppBarTab to='Repository List' label='Repositories' />
                                 <AppBarTab to='Create a Review' label='Create a review' />
+                                <AppBarTab to='My Reviews' label='My Reviews'/>
                                 <AppBarTab to='Logout' label='Logout' />
                             </>
                         ) : (
